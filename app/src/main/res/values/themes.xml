@@ -21,19 +21,13 @@
 
     <style name="Theme.MyCalC" parent="Base.Theme.MyCalC" />
 
-    <style name="opearatorbutton" parent="commonbutton">
-
+    <style name="operatorbutton" parent="commonbutton">
         <item name="android:textColor">@color/btnBackground2</item>
-
-
     </style>
 
 
     <style name="digitbutton" parent="commonbutton">
-
-        <item name="android:textColor"></item>
-
-
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="commonbutton" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
@@ -42,6 +36,10 @@
         <item name="android:layout_width">72dp</item>
         <item name="android:layout_height">72dp</item>
         <item name="cornerRadius">36dp</item>
+        <item name="android:textSize">36dp</item>
+        <item name="android:layout_margin">12dp</item>
+
+
 
     </style>
 

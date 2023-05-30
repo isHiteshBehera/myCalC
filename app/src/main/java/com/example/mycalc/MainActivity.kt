@@ -24,9 +24,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    fun onAllClearClick(view: View) {}
+    fun onAllClearClick(view: View) {
 
-    fun onEqualClick(view: View) {}
+        binding.dataTv.text = ""
+        binding.resultTv.text = ""
+        stateError = false
+        lastDot = false
+        lastNumeric = false
+        binding.resultTv.visibility = View.GONE
+
+    }
+
+    fun onEqualClick(view: View) {
+
+        onEqual()
+        binding.dataTv.text = binding.resultTv.text.toString().drop(1)
+
+    }
 
     fun onDigitClick(view: View) {
 
@@ -46,11 +60,46 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun onOperatorClick(view: View) {}
+    fun onOperatorClick(view: View) {
 
-    fun onBackClick(view: View) {}
+        if (!stateError && lastNumeric) {
 
-    fun onClearClick(view: View) {}
+            binding.dataTv.append((view as Button).text)
+            lastDot = false
+            lastNumeric = false
+            onEqual()
+
+        }
+
+    }
+
+    fun onBackClick(view: View) {
+
+        binding.dataTv.text = binding.dataTv.text.toString().dropLast(1)
+
+        try {
+
+            val lastChar = binding.dataTv.text.toString().last()
+            if (lastChar.isDigit()) {
+                onEqual()
+            }
+
+        } catch (e : Exception) {
+
+            binding.resultTv.text = ""
+            binding.resultTv.visibility = View.GONE
+            Log.e("last char erroe", e.toString())
+
+        }
+
+    }
+
+    fun onClearClick(view: View) {
+
+        binding.dataTv.text = ""
+        lastNumeric = false
+
+    }
 
     fun onEqual() {
         if (lastNumeric && !stateError) {

@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity() {
 
                 val result = expression.evaluate()
                 binding.resultTv.visibility = View.VISIBLE
-                binding.resultTv.text = "=" + result.toString()
+                binding.resultTv.text = "= " + result.toString()
 
             } catch (ex : ArithmeticException) {
 

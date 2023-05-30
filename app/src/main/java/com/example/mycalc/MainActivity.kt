@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    fun onAllClearClick(view: View) {
+    fun onAllClearClick() {
 
         binding.dataTv.text = ""
         binding.resultTv.text = ""
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun onEqualClick(view: View) {
+    fun onEqualClick() {
 
         onEqual()
         binding.dataTv.text = binding.resultTv.text.toString().drop(1)
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun onBackClick(view: View) {
+    fun onBackClick() {
 
         binding.dataTv.text = binding.dataTv.text.toString().dropLast(1)
 
@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun onClearClick(view: View) {
+    fun onClearClick() {
 
         binding.dataTv.text = ""
         lastNumeric = false

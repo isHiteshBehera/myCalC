@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                 onEqual()
             }
 
-        } catch (e : Exception) {
+        } catch (e: Exception) {
 
             binding.resultTv.text = ""
             binding.resultTv.visibility = View.GONE
@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity() {
                 binding.resultTv.visibility = View.VISIBLE
                 binding.resultTv.text = "= " + result.toString()
 
-            } catch (ex : ArithmeticException) {
+            } catch (ex: ArithmeticException) {
 
                 Log.e("evaluate error", ex.toString())
                 binding.resultTv.text = "Error"
@@ -124,10 +124,6 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-
-
     }
-
-
 
 }

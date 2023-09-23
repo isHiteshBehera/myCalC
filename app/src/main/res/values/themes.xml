@@ -25,6 +25,7 @@
     <style name="operatorbutton" parent="commonbutton">
 
         <item name="android:textColor">@color/btnBackground2</item>
+        <item name="android:tint">@color/btnBackground2</item>
 
     </style>
 

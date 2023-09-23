@@ -1,5 +1,6 @@
 package com.example.mycalc
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,9 +13,9 @@ import net.objecthunter.exp4j.ExpressionBuilder
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    var lastNumeric = false
-    var stateError = false
-    var lastDot = false
+    private var lastNumeric = false
+    private var stateError = false
+    private var lastDot = false
 
     private lateinit var expression: Expression
 
@@ -84,11 +85,11 @@ class MainActivity : AppCompatActivity() {
                 onEqual()
             }
 
-        } catch (e: Exception) {
+        } catch (e : Exception) {
 
             binding.resultTv.text = ""
             binding.resultTv.visibility = View.GONE
-            Log.e("last char erroe", e.toString())
+            Log.e("last char error", e.toString())
 
         }
 
@@ -101,7 +102,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun onEqual() {
+    @SuppressLint("SetTextI18n")
+    private fun onEqual() {
         if (lastNumeric && !stateError) {
 
             val txt = binding.dataTv.text.toString()
@@ -111,9 +113,9 @@ class MainActivity : AppCompatActivity() {
 
                 val result = expression.evaluate()
                 binding.resultTv.visibility = View.VISIBLE
-                binding.resultTv.text = "= " + result.toString()
+                binding.resultTv.text = "= $result"
 
-            } catch (ex: ArithmeticException) {
+            } catch (ex : ArithmeticException) {
 
                 Log.e("evaluate error", ex.toString())
                 binding.resultTv.text = "Error"
